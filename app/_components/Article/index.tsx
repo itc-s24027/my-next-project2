@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import type { News } from "../../_libs/microcms";
 //type を付けてインポートしているのは「型だけを取り込む」という意味（実際のJSコードには含まれない）。
@@ -15,8 +16,12 @@ export default function Article({ data }: Props) {
       <h1 className={styles.title}>{data.title}</h1>
       <p className={styles.description}>{data.description}</p>
       <div className={styles.meta}>
-        <Category category={data.category} />
-        <Date date={data.publishedAt ?? data.createdAt} />
+        <Link
+          href={`/news/category/${data.category.id}`}
+          className={styles.categoryLink}
+        >
+          <Category category={data.category} />
+        </Link>
         {/* 公開日があればそれを、なければ作成日を使う */}
       </div>
       {/* サムネイル画像があれば表示 */}
