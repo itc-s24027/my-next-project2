@@ -5,6 +5,8 @@ import { TOP_NEWS_LIMIT } from "@/app/_constants";
 import NewsList from "@/app/_components/NewsList"; //コンポーネントのインポート
 import ButtonLink from "@/app/_components/ButtonLink"; //コンポーネントのインポート
 
+export const revalidate = 60;
+
 export default async function Home() {
   //returnで2つの要素を返そうとするとエラーになるため、divで囲んで1つの要素にする
   //JSXではJavaScriptの変数を{}で囲むことで埋め込むことができる
