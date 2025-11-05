@@ -13,7 +13,7 @@ export type Member = {
 } & MicroCMSListContent;
 
 //categoryの型定義
-export type category = {
+export type Category = {
   name: string;
 } & MicroCMSListContent;
 
@@ -23,7 +23,7 @@ export type News = {
   description: string;
   content: string;
   thumbnail?: MicroCMSImage;
-  category: category;
+  category: Category;
 } & MicroCMSListContent;
 
 //ドメイン名やAPIキーが設定されていない場合、エラーを投げる
@@ -88,10 +88,26 @@ export const getCategoryDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  const detailData = await client.getListDetail<category>({
+  const detailData = await client.getListDetail<Category>({
     endpoint: "categories",
     contentId,
     queries,
   });
   return detailData;
+};
+
+export const getAllNewsList = async () => {
+  const listData = await client.getAllContents<News>({
+    endpoint: "news",
+  });
+
+  return listData;
+};
+
+export const getAllCategoryList = async () => {
+  const listData = await client.getAllContents<Category>({
+    endpoint: "categories",
+  });
+
+  return listData;
 };

@@ -8,6 +8,10 @@ Next.js では、同じ階層の page.tsx が自動的にこの layout.tsx に�
 import Sheet from "@/app/_components/Sheet";
 import Hero from "@/app/_components/Hero";
 
+export const metadata = {
+  title: "メンバー",
+};
+
 type Props = {
   children: React.ReactNode; //React.ReactNode は「Reactでレンダリングできる全てのもの（文字列、要素、配列など）」を表す型です。
 };
