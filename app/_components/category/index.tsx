@@ -1,8 +1,8 @@
-import { category } from "@/app/_libs/microcms"; //categoryの型定義をインポート
+import type { Category } from "@/app/_libs/microcms"; //categoryの型定義をインポート
 import styles from "./index.module.css";
 
 type Props = {
-  category: category;
+  category: Category;
 };
 export default function Category({ category }: Props) {
   return <span className={styles.tag}>{category.name}</span>;
